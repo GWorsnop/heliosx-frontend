@@ -2,30 +2,31 @@
 import completeQuestionnaire from "@/app/utils/completeQuestionnaire";
 import React, { useEffect, useState } from "react";
 import { Check, X } from "react-feather";
+import { redirect } from "next/navigation";
 
 interface additionalInformation {
   [key: number]: string[];
 }
 
+const questions: string[] = [
+  "Are you aged between 18 and 65?",
+  "Do you have any of these symptoms?",
+  "Are you breastfeeding or pregnant or possibly pregnant?",
+  "Are you currently taking any other medications?",
+  "Do you agree to the following?",
+];
+
+const additionalInformation: additionalInformation = {
+  1: ["Sore throat", "Itchy eyes", "Swelling"],
+  4: [
+    "You will read the patient information leaflet supplied with your medication",
+    "You will contact us and inform your GP of your medication if you experience any side effects of treatment, if you start new medication or if your medical conditions change during treatment.",
+    "The treatment is solely for your own use",
+    "You have answered all the previous questions accurately and truthfully. You understand our prescribers take your answers in good faith and base their prescribing decisions accordingly, and that incorrect information can be hazardous to your health.",
+  ],
+};
+
 export default function Questions() {
-  const questions: string[] = [
-    "Are you aged between 18 and 65?",
-    "Do you have any of these symptoms?",
-    "Are you breastfeeding or pregnant or possibly pregnant?",
-    "Are you currently taking any other medications?",
-    "Do you agree to the following?",
-  ];
-
-  const additionalInformation: additionalInformation = {
-    1: ["Sore throat", "Itchy eyes", "Swelling"],
-    4: [
-      "You will read the patient information leaflet supplied with your medication",
-      "You will contact us and inform your GP of your medication if you experience any side effects of treatment, if you start new medication or if your medical conditions change during treatment.",
-      "The treatment is solely for your own use",
-      "You have answered all the previous questions accurately and truthfully. You understand our prescribers take your answers in good faith and base their prescribing decisions accordingly, and that incorrect information can be hazardous to your health.",
-    ],
-  };
-
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<boolean[]>([]);
 
@@ -35,6 +36,7 @@ export default function Questions() {
         setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
       } else {
         completeQuestionnaire(answers, questions);
+        redirect("/thankyou");
       }
     }
   }, [answers]);
