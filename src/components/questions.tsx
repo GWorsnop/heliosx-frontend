@@ -57,7 +57,11 @@ export default function Questions() {
             <ul>
               {additionalInformation.hasOwnProperty(currentQuestionIndex) &&
                 additionalInformation[currentQuestionIndex].map((info) => {
-                  return <li className="px-2 text-sm text-gray-400">{info}</li>;
+                  return (
+                    <li className="px-2 text-xs text-gray-400 md:text-sm">
+                      {info}
+                    </li>
+                  );
                 })}
             </ul>
           </div>
