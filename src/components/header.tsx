@@ -1,22 +1,33 @@
 "use client";
 import React, { useState } from "react";
 import Image from "next/image";
-import { Menu, Search } from "react-feather";
+import { Menu, Search, X } from "react-feather";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
 
   return (
-    <header className="relative z-10 w-full">
+    <header className="relative z-10 w-screen">
       <div className="flex h-16 items-center bg-white">
-        <div className="flex h-16 w-full items-center justify-between px-10">
-          <div className="text-black lg:hidden">
-            <div onClick={() => setMenuOpen((prev) => !prev)}>
-              <Menu />
+        <div className="flex h-16 w-full items-center justify-between px-2 lg:px-10">
+          <div className="flex w-16 justify-center text-black lg:hidden">
+            <div>
+              <Menu onClick={() => setMenuOpen((prev) => !prev)} />
+              {menuOpen && (
+                <div className="absolute left-0 top-16 block w-32 rounded-sm bg-blue-200 py-4">
+                  <ul className="flex min-h-40 flex-col items-center justify-between text-sm text-black">
+                    <li>Treatments</li>
+                    <li>How it works</li>
+                    <li>Delivery</li>
+                    <li>FAQ</li>
+                  </ul>
+                </div>
+              )}
             </div>
           </div>
-          <div className="flex h-full">
-            <a className="m-auto flex w-48 justify-center" href="/">
+          <div className="flex h-full w-full items-center lg:w-48">
+            <a className="m-auto flex w-32 justify-center md:w-48" href="/">
               <div>
                 <Image
                   src="/images/medexpressuk.jpeg"
@@ -27,26 +38,26 @@ export default function Header() {
               </div>
             </a>
           </div>
-          <ul className="flex h-full w-1/2 justify-center text-black">
-            <li className="flex h-full w-32 cursor-pointer items-center justify-center hover:bg-blue-400">
+          <ul className="hidden justify-center text-black lg:flex lg:h-full lg:w-1/2">
+            <li className="flex h-full cursor-pointer items-center justify-center px-6 hover:bg-blue-200">
               Treatments
             </li>
-            <li className="flex h-full w-32 cursor-pointer items-center justify-center hover:bg-blue-400">
+            <li className="px-6cursor-pointer flex h-full items-center justify-center px-6 hover:bg-blue-200">
               How it works
             </li>
-            <li className="flex h-full w-32 cursor-pointer items-center justify-center hover:bg-blue-400">
+            <li className="flex h-full cursor-pointer items-center justify-center px-6 hover:bg-blue-200">
               Delivery
             </li>
-            <li className="flex h-full w-32 cursor-pointer items-center justify-center hover:bg-blue-400">
+            <li className="flex h-full cursor-pointer items-center justify-center px-6 hover:bg-blue-200">
               FAQ
             </li>
           </ul>
           <div className="flex items-center text-black">
             <div className="h-8 pr-2 pt-1">
-              <Search />
+              <Search onClick={() => setSearchOpen((prev) => !prev)} />
             </div>
             <div className="flex w-full">
-              <label className="text-sm text-gray-700">
+              <label className="hidden text-sm text-gray-700 md:flex">
                 <input
                   placeholder="Search"
                   className="input h-8 w-20 pl-1 md:w-36"
