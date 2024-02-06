@@ -45,13 +45,13 @@ export default function Questions() {
 
   return (
     <div className="m-auto flex min-h-full w-full flex-col justify-center">
-      <div className="mx-auto min-h-96 w-1/2 rounded-lg bg-white text-center">
-        <h2 className="p-4 text-3xl">Client Questionnaire</h2>
-        <div className="flex h-full min-h-64 flex-col pt-4">
-          <p className="flex justify-center pb-4 text-xl">
+      <div className="mx-auto w-4/5 rounded-lg bg-white text-center md:w-1/2">
+        <h2 className="p-4 text-xl md:text-3xl">Client Questionnaire</h2>
+        <div className="flex h-full flex-col justify-center pt-4">
+          <p className="flex justify-center md:text-xl">
             {questions[currentQuestionIndex]}
           </p>
-          <div className="flex flex-col self-center pb-6 pl-4 text-start">
+          <div className="flex flex-col self-center py-6 pl-4 text-start">
             <ul>
               {additionalInformation.hasOwnProperty(currentQuestionIndex) &&
                 additionalInformation[currentQuestionIndex].map((info) => {
@@ -60,18 +60,18 @@ export default function Questions() {
             </ul>
           </div>
         </div>
-        <div className="flex justify-around">
+        <div className="flex justify-around pb-4">
           <button
             className="flex gap-1 rounded bg-green-500 px-4 py-2 font-bold shadow-md hover:bg-green-400 focus:outline-none"
             onClick={() => handleAnswerChange(true)}
           >
-            <Check /> True
+            <Check /> Yes
           </button>
           <button
             className="flex gap-1 rounded bg-red-500 px-4 py-2 font-bold shadow-md hover:bg-red-400 focus:outline-none"
             onClick={() => handleAnswerChange(false)}
           >
-            <X /> False
+            <X /> No
           </button>
         </div>
       </div>
