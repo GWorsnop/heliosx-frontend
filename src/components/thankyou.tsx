@@ -34,7 +34,7 @@ export default function ThankYou() {
         <h2 className="p-4 text-xl md:text-3xl">
           Thank you for completing the questionnaire
         </h2>
-        <div className="flex justify-center">
+        <div className="flex justify-center pr-4">
           <Image
             src="/images/doctor.png"
             alt="Medexpress Logo"
