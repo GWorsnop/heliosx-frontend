@@ -42,7 +42,7 @@ export default function Header() {
             <li className="flex h-full cursor-pointer items-center justify-center px-6 hover:bg-blue-300">
               Treatments
             </li>
-            <li className="px-6cursor-pointer flex h-full items-center justify-center px-6 hover:bg-blue-300">
+            <li className="flex h-full cursor-pointer items-center justify-center px-6 hover:bg-blue-300">
               How it works
             </li>
             <li className="flex h-full cursor-pointer items-center justify-center px-6 hover:bg-blue-300">
