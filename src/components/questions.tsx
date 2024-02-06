@@ -56,9 +56,12 @@ export default function Questions() {
           <div className="flex flex-col self-center py-6 pl-4 text-start">
             <ul>
               {additionalInformation.hasOwnProperty(currentQuestionIndex) &&
-                additionalInformation[currentQuestionIndex].map((info) => {
+                additionalInformation[currentQuestionIndex].map((info, i) => {
                   return (
-                    <li className="px-2 text-xs text-gray-400 md:text-sm">
+                    <li
+                      key={i}
+                      className="px-2 text-xs text-gray-400 md:text-sm"
+                    >
                       {info}
                     </li>
                   );
