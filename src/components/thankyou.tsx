@@ -31,7 +31,7 @@ export default function ThankYou() {
   return (
     <div className="m-auto flex min-h-full w-full flex-col justify-center">
       <div className="mx-auto w-4/5 rounded-lg bg-white text-center md:w-1/2">
-        <h2 className="p-4 text-xl md:text-3xl">
+        <h2 className="p-4 text-lg md:text-3xl">
           Thank you for completing the questionnaire
         </h2>
         <div className="flex justify-center pr-4">
@@ -43,11 +43,11 @@ export default function ThankYou() {
           />
         </div>
         <div className="flex h-full flex-col justify-center px-4 pt-4">
-          <p className="flex justify-center md:text-xl">
+          <p className="flex justify-center text-sm md:text-lg">
             A Genovian doctor will review your answers and decide whether or not
             it is appropriate to prescribe you medication.
           </p>
-          <p className="flex justify-center py-4 md:text-xl">
+          <p className="flex justify-center py-4 text-sm md:text-lg">
             We will be in touch shortly with a response.
           </p>
         </div>
